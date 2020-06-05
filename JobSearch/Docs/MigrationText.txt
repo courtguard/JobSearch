@@ -1,0 +1,3 @@
+﻿Enable-Migrations -ContextTypeName EmploymentContext
+add-migration -configurationTypeName JobSearch.Migrations.Configuration "New LogInProfile Model added"
+update-database -ConfigurationTypeName JobSearch.Migrations.Configuration
