@@ -16,6 +16,7 @@ namespace JobSearch.Models.JobModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [Required]
+        [Display(Name="Email")]
         public string eAddress { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

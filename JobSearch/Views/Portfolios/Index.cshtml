@@ -2,13 +2,116 @@
 
 @{
     ViewBag.Title = "Index";
+
+    int id = 0;
+    int role = 0;
+    string userName = string.Empty;
+    string email = string.Empty;
+    string name = string.Empty;
+    string surname = string.Empty;
+    HttpCookie reqCookies = Request.Cookies["userInfo"];
+    if (reqCookies != null)
+    {
+        id = Convert.ToInt32(reqCookies["Id"].ToString());
+        role = Convert.ToInt32(reqCookies["Role"].ToString());
+        userName = reqCookies["UserName"].ToString();
+        email = reqCookies["eAddress"].ToString();
+        name = reqCookies["Name"].ToString();
+        surname = reqCookies["Surname"].ToString();
+    }
+
 }
+<style type="text/css">
+    img {
+        height: 20%;
+        width: 100%;
+    }
+
+    .naslov {
+        text-align: center;
+    }
+
+    table {
+        font-size: 20px;
+        text-align: left;
+        width: 100%;
+    }
+
+    .sini {
+        font-weight: bold;
+        color: royalblue;
+        text-align: right;
+        margin: 10px;
+        padding-right: 20px;
+    }
+
+    td {
+        height: 40px;
+        width: 250px;
+        padding-left: 20px;
+    }
+
+    tr {
+        margin: 20px;
+    }
+
+    button {
+        width: 160px;
+    }
+
+    .delit {
+        margin-left: 810px;
+    }
+</style>
 
 @if (Model != null)
 {
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-    @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
-    <p>CV : @Model.CV</p>
+
+    <img src="https://miro.medium.com/max/1400/1*OlgqUIhvl5-9dZISlZ2-yQ.jpeg" />
+    <body>
+        <table>
+            <thead><h1 class="naslov">Your Portfolio</h1></thead>
+            <hr>
+            <tbody>
+                <tr>
+                    <td class="sini">Your name: </td>
+                    <td> @name</td>
+                </tr>
+                <tr>
+                    <td class="sini">Your last name: </td>
+                    <td> @surname</td>
+                </tr>
+                <tr>
+                    <td class="sini">Email: </td>
+                    <td> @email</td>
+                </tr>
+                <tr>
+                    <td class="sini">Location: </td>
+                    <td> @Model.Location</td>
+                </tr>
+                <tr>
+                    <td class="sini">Education: </td>
+                    <td> @Model.Education</td>
+                </tr>
+                <tr>
+                    <td class="sini">Experience: </td>
+                    <td> @Model.Experience</td>
+                </tr>
+                <tr>
+                    <td class="sini">Previous Projects: </td>
+                    <td> @Model.PreviousProjects</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </body>
+    <button class="btn btn-default">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    </button>
+    <button class="delit btn btn-default">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+    </button>
 }
 else
 {

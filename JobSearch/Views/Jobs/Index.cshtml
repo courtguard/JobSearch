@@ -20,7 +20,7 @@
                 @Html.ActionLink("Create New", "Create")
             }
         }
-     }
+    }
 </p>
 <table class="table">
     <tr>
@@ -72,8 +72,8 @@
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 }
                 if (role == 1)
-                {
-                    @Html.ActionLink("Comment", "Comment", "Comment")
+                {                    
+                    @Html.ActionLink("Apply", "Apply", new { id = item.Id })
                 }
             }
         </td>

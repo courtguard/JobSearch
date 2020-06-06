@@ -123,6 +123,22 @@ namespace JobSearch.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Apply(int id)
+        {
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                int profileId = Convert.ToInt32(reqCookies["Id"].ToString());
+                var application = db.AppliesFors.Where(x => x.JobId == id && x.Profileid == profileId).FirstOrDefault();
+                if (application == null)
+                {
+                    AppliesFor app=new AppliesFor(profileId,id);
+                    db.AppliesFors.Add(app);
+                    db.SaveChanges();
+                }
+            }
+            return RedirectToAction("Index");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
