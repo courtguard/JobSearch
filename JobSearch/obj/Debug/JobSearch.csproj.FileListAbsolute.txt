@@ -550,3 +550,4 @@ C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.dll
 C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.pdb
 C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.editedprofiles.resources
 C:\Users\Damjan\Desktop\New folder (2)\JobSearch\obj\Debug\JobSearch.Migrations.editedprofiles.resources
+C:\Users\Damjan\Desktop\New folder (2)\JobSearch\obj\Debug\JobSearch.Migrations.CreatedJobApplications.resources

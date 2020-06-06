@@ -24,16 +24,29 @@ namespace JobSearch.Controllers
         // GET: Jobs/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            int userid = 0;
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                string Position = db.Jobs.Where(x => x.Id == id).FirstOrDefault().Position;
+                string FullPart = db.Jobs.Where(x => x.Id == id).FirstOrDefault().FullPart;
+                string Description = db.Jobs.Where(x => x.Id == id).FirstOrDefault().Description;
+                string Qualifications = db.Jobs.Where(x => x.Id == id).FirstOrDefault().Qualifications;
+                DateTime Deadline = db.Jobs.Where(x => x.Id == id).FirstOrDefault().Deadline;
+                userid = Convert.ToInt32(reqCookies["Id"].ToString());
+                List<AppliesFor>appliesfor=db.AppliesFors.ToList();
+                List<int> Applications = new List<int>();
+                foreach (AppliesFor a in appliesfor)
+                {
+                    if (a.JobId == id)
+                    {
+                        Applications.Add(a.Profileid);
+                    }
+                }
+                JobApplications model = new JobApplications(Position, FullPart, Description, Qualifications, Deadline, Applications);
+                return View(model);
             }
-            Job job = db.Jobs.Find(id);
-            if (job == null)
-            {
-                return HttpNotFound();
-            }
-            return View(job);
+            return View();
         }
 
         // GET: Jobs/Create
@@ -150,7 +163,6 @@ namespace JobSearch.Controllers
 
         public ActionResult Comment(int id)
         {
-
             return View();
         }
     }

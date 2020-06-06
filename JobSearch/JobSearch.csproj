@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202006061018475_edited profiles.Designer.cs">
       <DependentUpon>202006061018475_edited profiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006061836204_Created JobApplications.cs" />
+    <Compile Include="Migrations\202006061836204_Created JobApplications.Designer.cs">
+      <DependentUpon>202006061836204_Created JobApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -190,6 +194,7 @@
     <Compile Include="Models\JobModels\Comment.cs" />
     <Compile Include="Models\JobModels\EmploymentContext.cs" />
     <Compile Include="Models\JobModels\Job.cs" />
+    <Compile Include="Models\JobModels\JobApplications.cs" />
     <Compile Include="Models\JobModels\Portfolio.cs" />
     <Compile Include="Models\JobModels\Profile.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -263,9 +268,9 @@
     <Content Include="Views\Portfolios\Index.cshtml" />
     <Content Include="Views\Jobs\Create.cshtml" />
     <Content Include="Views\Jobs\Delete.cshtml" />
-    <Content Include="Views\Jobs\Details.cshtml" />
     <Content Include="Views\Jobs\Edit.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
+    <Content Include="Views\Jobs\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -289,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006061018475_edited profiles.resx">
       <DependentUpon>202006061018475_edited profiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006061836204_Created JobApplications.resx">
+      <DependentUpon>202006061836204_Created JobApplications.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

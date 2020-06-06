@@ -27,5 +27,7 @@ namespace JobSearch.Models.JobModels
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
         }
+
+        public System.Data.Entity.DbSet<JobSearch.Models.JobModels.JobApplications> JobApplications { get; set; }
     }
 }

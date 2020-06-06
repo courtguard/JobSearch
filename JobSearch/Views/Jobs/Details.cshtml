@@ -1,23 +1,28 @@
-﻿@model JobSearch.Models.JobModels.Job
+﻿@model JobSearch.Models.JobModels.JobApplications
 
 @{
     ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
-
+@{
+    int id = 0;
+    int role = 0;
+    HttpCookie reqCookies = Request.Cookies["userInfo"];
+    if (reqCookies != null)
+    {
+        id = Convert.ToInt32(reqCookies["Id"].ToString());
+        role = Convert.ToInt32(reqCookies["Role"].ToString());
+        if (role == 2)
+        {
+            @Html.ActionLink("Create New", "Create")
+        }
+    }
+}
 <div>
-    <h4>Job</h4>
+    <h4>JobApplications</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Profile.Username)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Profile.Username)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Position)
         </dt>
@@ -61,6 +66,14 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @{
+        if (Model.Applications.Contains(id))
+        {
+
+        }
+        else
+        {
+            @Html.ActionLink("Apply", "Apply", new { id = Model.Id })
+        }
+    }
 </p>

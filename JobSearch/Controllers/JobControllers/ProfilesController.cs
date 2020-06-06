@@ -58,12 +58,12 @@ namespace JobSearch.Controllers.JobControllers
                     db.Profiles.Add(profile);
                     db.SaveChanges();
                     HttpCookie userInfo = new HttpCookie("userInfo");
-                    userInfo["UserName"] = user.Username;
-                    userInfo["Id"] = user.Id.ToString();
-                    userInfo["Role"] = user.Role.ToString();
-                    userInfo["Name"] = user.Name;
-                    userInfo["Surname"] = user.Surname;
-                    userInfo["eAddress"] = user.eAddress;
+                    userInfo["UserName"] = profile.Username;
+                    userInfo["Id"] = profile.Id.ToString();
+                    userInfo["Role"] = profile.Role.ToString();
+                    userInfo["Name"] = profile.Name;
+                    userInfo["Surname"] = profile.Surname;
+                    userInfo["eAddress"] = profile.eAddress;
                     userInfo.Expires.Add(new TimeSpan(0, 1, 0));
                     Response.Cookies.Add(userInfo);
                     return RedirectToAction("Index");
