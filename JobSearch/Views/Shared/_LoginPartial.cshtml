@@ -1,22 +1,21 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+@{
+    string User_name = string.Empty;
+    HttpCookie reqCookies = Request.Cookies["userInfo"];
+    if (reqCookies != null)
     {
-    @Html.AntiForgeryToken()
-
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        User_name = reqCookies["UserName"].ToString();
+        System.Diagnostics.Debug.WriteLine(User_name);
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Loged in as: " + User_name, "Index", "Portfolios", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+            <li>@Html.ActionLink("Log Out", "LogOff", "Profiles", routeValues: null, htmlAttributes: new { id = "logofflink" })</li>
+        </ul>
     }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Create", "Profiles", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Profiles", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Create", "Profiles", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Profiles", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }
 }
