@@ -66,7 +66,7 @@ namespace JobSearch.Controllers.JobControllers
                     userInfo["eAddress"] = profile.eAddress;
                     userInfo.Expires.Add(new TimeSpan(0, 1, 0));
                     Response.Cookies.Add(userInfo);
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Jobs");
                 }
                 else
                 {

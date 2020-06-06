@@ -8,6 +8,7 @@ namespace JobSearch.Models.JobModels
     public class JobApplications
     {
         public int Id { get; set; }
+        public int JobId { get; set; }
         public string Position { get; set; }
         public string FullPart { get; set; }
         public string Description { get; set; }
@@ -20,8 +21,9 @@ namespace JobSearch.Models.JobModels
         {
             Applications = new List<int>();
         }
-        public JobApplications(string p,string f,string d,string q,DateTime dl, List<int> a)
+        public JobApplications(int j,string p,string f,string d,string q,DateTime dl, List<int> a)
         {
+            JobId = j;
             Position = p;
             FullPart = f;
             Description = d;

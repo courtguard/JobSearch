@@ -26,7 +26,7 @@ namespace JobSearch.Controllers.JobControllers
                 if (user != null)
                     return View(user);
             }
-            return View();
+            return RedirectToAction("Create");
         }
 
         // GET: Portfolios/Details/5

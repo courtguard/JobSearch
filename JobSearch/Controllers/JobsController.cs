@@ -22,7 +22,7 @@ namespace JobSearch.Controllers
         }
 
         // GET: Jobs/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
             int userid = 0;
             HttpCookie reqCookies = Request.Cookies["userInfo"];
@@ -43,7 +43,7 @@ namespace JobSearch.Controllers
                         Applications.Add(a.Profileid);
                     }
                 }
-                JobApplications model = new JobApplications(Position, FullPart, Description, Qualifications, Deadline, Applications);
+                JobApplications model = new JobApplications(id,Position, FullPart, Description, Qualifications, Deadline, Applications);
                 return View(model);
             }
             return View();
@@ -161,9 +161,5 @@ namespace JobSearch.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult Comment(int id)
-        {
-            return View();
-        }
     }
 }

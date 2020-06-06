@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\JobControllers\PortfoliosController.cs" />
     <Compile Include="Controllers\JobControllers\ProfilesController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
@@ -186,6 +187,14 @@
     <Compile Include="Migrations\202006061836204_Created JobApplications.cs" />
     <Compile Include="Migrations\202006061836204_Created JobApplications.Designer.cs">
       <DependentUpon>202006061836204_Created JobApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006061915401_Added JobId in JobApplication.cs" />
+    <Compile Include="Migrations\202006061915401_Added JobId in JobApplication.Designer.cs">
+      <DependentUpon>202006061915401_Added JobId in JobApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006061938332_added comment in comment.cs" />
+    <Compile Include="Migrations\202006061938332_added comment in comment.Designer.cs">
+      <DependentUpon>202006061938332_added comment in comment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -271,6 +280,11 @@
     <Content Include="Views\Jobs\Edit.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Jobs\Details.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +311,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006061836204_Created JobApplications.resx">
       <DependentUpon>202006061836204_Created JobApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006061915401_Added JobId in JobApplication.resx">
+      <DependentUpon>202006061915401_Added JobId in JobApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006061938332_added comment in comment.resx">
+      <DependentUpon>202006061938332_added comment in comment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

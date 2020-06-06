@@ -69,11 +69,12 @@
     @{
         if (Model.Applications.Contains(id))
         {
-
+            <p>You have applied for this job</p>
         }
         else
         {
-            @Html.ActionLink("Apply", "Apply", new { id = Model.Id })
+            @Html.ActionLink("Apply", "Apply", new { id = Model.JobId })
         }
+        @Html.ActionLink("View Comments","Index", "Comments")
     }
 </p>
