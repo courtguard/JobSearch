@@ -17,7 +17,16 @@ namespace JobSearch.Controllers.JobControllers
         // GET: Portfolios
         public ActionResult Index()
         {
-            return View(db.Portfolios.ToList());
+            var id = 0;
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
+            {
+                id = Convert.ToInt32(reqCookies["UserId"].ToString());
+                var user = db.Portfolios.Where(x => x.ProfilId == id).FirstOrDefault();
+                if (user != null)
+                    return View(user);
+            }
+            return View();
         }
 
         // GET: Portfolios/Details/5
@@ -46,15 +55,18 @@ namespace JobSearch.Controllers.JobControllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Education,Location,CV,Experience,PreviousProjects,ProfilId")] Portfolio portfolio)
+        public ActionResult Create([Bind(Include = "Id,Education,Location,CV,Experience,PreviousProjects")] Portfolio portfolio)
         {
-            if (ModelState.IsValid)
+
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
             {
+                var id = Convert.ToInt32(reqCookies["UserId"].ToString());
+                portfolio.ProfilId = id;
                 db.Portfolios.Add(portfolio);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-
+            }      
             return View(portfolio);
         }
 
@@ -78,10 +90,13 @@ namespace JobSearch.Controllers.JobControllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Education,Location,CV,Experience,PreviousProjects,ProfilId")] Portfolio portfolio)
+        public ActionResult Edit([Bind(Include = "Id,Education,Location,CV,Experience,PreviousProjects")] Portfolio portfolio)
         {
-            if (ModelState.IsValid)
+            HttpCookie reqCookies = Request.Cookies["userInfo"];
+            if (reqCookies != null)
             {
+                var id = Convert.ToInt32(reqCookies["UserId"].ToString());
+                portfolio.ProfilId = id;
                 db.Entry(portfolio).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

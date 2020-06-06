@@ -1,0 +1,84 @@
+﻿@model IEnumerable<JobSearch.Models.JobModels.Job>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @{
+        int id = 0;
+        int role = 0;
+        HttpCookie reqCookies = Request.Cookies["userInfo"];
+        if (reqCookies != null)
+        {
+            id = Convert.ToInt32(reqCookies["UserId"].ToString());
+            role = Convert.ToInt32(reqCookies["UserRole"].ToString());
+            if (role == 2)
+            {
+                @Html.ActionLink("Create New", "Create")
+            }
+        }
+     }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Profile.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullPart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Qualifications)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deadline)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullPart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qualifications)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deadline)
+        </td>
+        <td>
+            @{
+                if (id == item.Id)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
+                if (role == 1)
+                {
+                    @Html.ActionLink("Comment", "Comment", "Comment")
+                }
+            }
+        </td>
+    </tr>
+}
+
+</table>

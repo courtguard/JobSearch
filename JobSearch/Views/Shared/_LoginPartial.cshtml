@@ -5,7 +5,6 @@
     if (reqCookies != null)
     {
         User_name = reqCookies["UserName"].ToString();
-        System.Diagnostics.Debug.WriteLine(User_name);
         <ul class="nav navbar-nav navbar-right">
             <li>@Html.ActionLink("Loged in as: " + User_name, "Index", "Portfolios", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
             <li>@Html.ActionLink("Log Out", "LogOff", "Profiles", routeValues: null, htmlAttributes: new { id = "logofflink" })</li>
