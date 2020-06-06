@@ -53,7 +53,7 @@ namespace JobSearch.Controllers
             HttpCookie reqCookies = Request.Cookies["userInfo"];
             if (reqCookies != null)
             {
-                var id = Convert.ToInt32(reqCookies["UserId"].ToString());
+                var id = Convert.ToInt32(reqCookies["Id"].ToString());
                 job.ProfileId = id;
                 db.Jobs.Add(job);
                 db.SaveChanges();

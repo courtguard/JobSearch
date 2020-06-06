@@ -13,8 +13,8 @@
         HttpCookie reqCookies = Request.Cookies["userInfo"];
         if (reqCookies != null)
         {
-            id = Convert.ToInt32(reqCookies["UserId"].ToString());
-            role = Convert.ToInt32(reqCookies["UserRole"].ToString());
+            id = Convert.ToInt32(reqCookies["Id"].ToString());
+            role = Convert.ToInt32(reqCookies["Role"].ToString());
             if (role == 2)
             {
                 @Html.ActionLink("Create New", "Create")
@@ -67,9 +67,8 @@
         </td>
         <td>
             @{
-                if (id == item.Id)
+                if (id == item.ProfileId)
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 }
                 if (role == 1)

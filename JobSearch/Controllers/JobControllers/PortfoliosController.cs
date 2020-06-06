@@ -21,7 +21,7 @@ namespace JobSearch.Controllers.JobControllers
             HttpCookie reqCookies = Request.Cookies["userInfo"];
             if (reqCookies != null)
             {
-                id = Convert.ToInt32(reqCookies["UserId"].ToString());
+                id = Convert.ToInt32(reqCookies["Id"].ToString());
                 var user = db.Portfolios.Where(x => x.ProfilId == id).FirstOrDefault();
                 if (user != null)
                     return View(user);
@@ -61,7 +61,7 @@ namespace JobSearch.Controllers.JobControllers
             HttpCookie reqCookies = Request.Cookies["userInfo"];
             if (reqCookies != null)
             {
-                var id = Convert.ToInt32(reqCookies["UserId"].ToString());
+                var id = Convert.ToInt32(reqCookies["Id"].ToString());
                 portfolio.ProfilId = id;
                 db.Portfolios.Add(portfolio);
                 db.SaveChanges();
@@ -95,7 +95,7 @@ namespace JobSearch.Controllers.JobControllers
             HttpCookie reqCookies = Request.Cookies["userInfo"];
             if (reqCookies != null)
             {
-                var id = Convert.ToInt32(reqCookies["UserId"].ToString());
+                var id = Convert.ToInt32(reqCookies["Id"].ToString());
                 portfolio.ProfilId = id;
                 db.Entry(portfolio).State = EntityState.Modified;
                 db.SaveChanges();

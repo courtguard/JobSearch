@@ -58,7 +58,12 @@ namespace JobSearch.Controllers.JobControllers
                     db.Profiles.Add(profile);
                     db.SaveChanges();
                     HttpCookie userInfo = new HttpCookie("userInfo");
-                    userInfo["UserName"] = profile.Username;
+                    userInfo["UserName"] = user.Username;
+                    userInfo["Id"] = user.Id.ToString();
+                    userInfo["Role"] = user.Role.ToString();
+                    userInfo["Name"] = user.Name;
+                    userInfo["Surname"] = user.Surname;
+                    userInfo["eAddress"] = user.eAddress;
                     userInfo.Expires.Add(new TimeSpan(0, 1, 0));
                     Response.Cookies.Add(userInfo);
                     return RedirectToAction("Index");
@@ -159,13 +164,16 @@ namespace JobSearch.Controllers.JobControllers
             }
             //System.Diagnostics.Debug.WriteLine(profile.Username);
             HttpCookie userInfo = new HttpCookie("userInfo");
-            userInfo["UserName"] = profile.Username;
-            userInfo["UserId"] = user.Id.ToString();
-            userInfo["UserRole"] = user.Role.ToString();
+            userInfo["UserName"] = user.Username;
+            userInfo["Id"] = user.Id.ToString();
+            userInfo["Role"] = user.Role.ToString();
+            userInfo["Name"] = user.Name;
+            userInfo["Surname"] = user.Surname;
+            userInfo["eAddress"] = user.eAddress;
             userInfo.Expires.Add(new TimeSpan(0, 1, 0));
             Response.Cookies.Add(userInfo);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Jobs");
             
         }
         public ActionResult LogOff()
@@ -176,7 +184,7 @@ namespace JobSearch.Controllers.JobControllers
                 c.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(c);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Jobs");
         }
     }
 }
