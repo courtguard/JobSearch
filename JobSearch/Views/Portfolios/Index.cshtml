@@ -55,10 +55,11 @@
         margin: 20px;
     }
 
-    button {
-        width: 160px;
-    }
-
+    
+   .k {
+       width:70px;
+       text-align:center;
+   }
     .delit {
         margin-left: 810px;
     }
@@ -101,15 +102,18 @@
                     <td class="sini">Previous Projects: </td>
                     <td> @Model.PreviousProjects</td>
                 </tr>
-
-
+                <tr>
+                    <td class="sini">CV: </td>
+                    <td> @Model.CV</td>
+                </tr>
+                <tr>
+                    <td class="sini">@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary k" })</td>
+                    <td >@Html.ActionLink("Delete", "Delete", new { id = Model.Id }, new { @class = "k btn btn-primary" })</td>
+                </tr>
             </tbody>
         </table>
     </body>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id },new{@class="btn btn-default" })
-    <div style="text-align:right">
-        @Html.ActionLink("Delete", "Delete", new { id = Model.Id },new{@class = "btn btn-default"})
-    </div>
+        
 }
 else
 {
