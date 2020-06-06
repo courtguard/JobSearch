@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using JobSearch.Models.JobModels;
@@ -122,6 +123,32 @@ namespace JobSearch.Controllers.JobControllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(Profile profile)
+        {
+            var UserName = db.Profiles.Where(x => x.Username == profile.Username).FirstOrDefault();
+            var UserPassword = db.Profiles.Where(x => x.Password == profile.Password).FirstOrDefault();
+            if (ModelState.IsValid)
+            {
+                if (UserName == null || UserPassword == null)
+                {
+                    ModelState.AddModelError("", "Invalid username or password.");
+                    return View();
+                }
+                var id = db.Profiles.Where(x => x.Username == profile.Username && x.Password == profile.Password).FirstOrDefault().Id;
+                var role = db.Profiles.Where(x => x.Id == id).FirstOrDefault();
+                
+            }
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
