@@ -3,8 +3,13 @@
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Create</h2>
+<style type="text/css">
+    h2 {
+        color: #3366DD;
+        font-weight: bold;
+    }
+</style>
+<h2>Offer a job</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +17,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Job</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

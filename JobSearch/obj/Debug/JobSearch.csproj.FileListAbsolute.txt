@@ -781,3 +781,7 @@ C:\Users\anaki\Desktop\New folder\JobSearch\obj\Debug\JobSearch.csproj.CoreCompi
 C:\Users\anaki\Desktop\New folder\JobSearch\obj\Debug\JobSearch.csproj.CopyComplete
 C:\Users\anaki\Desktop\New folder\JobSearch\obj\Debug\JobSearch.dll
 C:\Users\anaki\Desktop\New folder\JobSearch\obj\Debug\JobSearch.pdb
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.CreatedJobApplications.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.AddedJobIdinJobApplication.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.addedcommentincomment.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.CreatedApplicantsForJobs.resources

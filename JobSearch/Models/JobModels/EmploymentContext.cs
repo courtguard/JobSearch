@@ -29,5 +29,7 @@ namespace JobSearch.Models.JobModels
         }
 
         public System.Data.Entity.DbSet<JobSearch.Models.JobModels.JobApplications> JobApplications { get; set; }
+
+        public System.Data.Entity.DbSet<JobSearch.Models.JobModels.ApplicantsForJob> ApplicantsForJobs { get; set; }
     }
 }

@@ -25,6 +25,9 @@ namespace JobSearch.Controllers
         public ActionResult Details(int id)
         {
             int userid = 0;
+            HttpCookie jobId = new HttpCookie("JobId");
+            jobId["JobId"] = id.ToString();
+            Response.Cookies.Add(jobId);
             HttpCookie reqCookies = Request.Cookies["userInfo"];
             if (reqCookies != null)
             {
@@ -34,7 +37,7 @@ namespace JobSearch.Controllers
                 string Qualifications = db.Jobs.Where(x => x.Id == id).FirstOrDefault().Qualifications;
                 DateTime Deadline = db.Jobs.Where(x => x.Id == id).FirstOrDefault().Deadline;
                 userid = Convert.ToInt32(reqCookies["Id"].ToString());
-                List<AppliesFor>appliesfor=db.AppliesFors.ToList();
+                List<AppliesFor> appliesfor = db.AppliesFors.ToList();
                 List<int> Applications = new List<int>();
                 foreach (AppliesFor a in appliesfor)
                 {
@@ -43,11 +46,12 @@ namespace JobSearch.Controllers
                         Applications.Add(a.Profileid);
                     }
                 }
-                JobApplications model = new JobApplications(id,Position, FullPart, Description, Qualifications, Deadline, Applications);
+                JobApplications model = new JobApplications(id, Position, FullPart, Description, Qualifications, Deadline, Applications);
                 return View(model);
             }
             return View();
         }
+
 
         // GET: Jobs/Create
         public ActionResult Create()

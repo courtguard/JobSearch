@@ -6,7 +6,7 @@
 
 <style type="text/css">
     h2 {
-        color: darkblue;
+        color: #3366DD;
         font-weight: bold;
     }
 </style>
@@ -24,7 +24,7 @@
             role = Convert.ToInt32(reqCookies["Role"].ToString());
             if (role == 2)
             {
-                @Html.ActionLink("Create New", "Create")
+                @Html.ActionLink("Offer A Job", "Create", new { id = 1 }, new { @class = "btn btn-primary" })
             }
         }
     }
@@ -77,7 +77,9 @@
                 @{
                     if (id == item.ProfileId)
                     {
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary",@style="margin-right:10px" })
+
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
                     }
                     if (role == 1)
                     {

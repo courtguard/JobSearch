@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicantsForJobsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\JobControllers\PortfoliosController.cs" />
     <Compile Include="Controllers\JobControllers\ProfilesController.cs" />
@@ -196,9 +197,14 @@
     <Compile Include="Migrations\202006061938332_added comment in comment.Designer.cs">
       <DependentUpon>202006061938332_added comment in comment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006071042188_Created ApplicantsForJobs.cs" />
+    <Compile Include="Migrations\202006071042188_Created ApplicantsForJobs.Designer.cs">
+      <DependentUpon>202006071042188_Created ApplicantsForJobs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobModels\ApplicantsForJob.cs" />
     <Compile Include="Models\JobModels\AppliesFor.cs" />
     <Compile Include="Models\JobModels\Comment.cs" />
     <Compile Include="Models\JobModels\EmploymentContext.cs" />
@@ -285,6 +291,11 @@
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\Edit.cshtml" />
     <Content Include="Views\Comments\Index.cshtml" />
+    <Content Include="Views\ApplicantsForJobs\Create.cshtml" />
+    <Content Include="Views\ApplicantsForJobs\Delete.cshtml" />
+    <Content Include="Views\ApplicantsForJobs\Details.cshtml" />
+    <Content Include="Views\ApplicantsForJobs\Edit.cshtml" />
+    <Content Include="Views\ApplicantsForJobs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -317,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006061938332_added comment in comment.resx">
       <DependentUpon>202006061938332_added comment in comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071042188_Created ApplicantsForJobs.resx">
+      <DependentUpon>202006071042188_Created ApplicantsForJobs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
