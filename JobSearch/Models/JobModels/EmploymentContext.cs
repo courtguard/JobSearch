@@ -22,7 +22,7 @@ namespace JobSearch.Models.JobModels
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AppliesFor>().HasKey(vf => new { vf.Profileid, vf.JobId });
-            modelBuilder.Entity<Comment>().HasKey(vf => new { vf.Profileid, vf.JobId });
+            modelBuilder.Entity<Comment>().HasKey(vf => new { vf.Id });
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 

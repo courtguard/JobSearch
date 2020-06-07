@@ -786,3 +786,7 @@ C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.Adde
 C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.addedcommentincomment.resources
 C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.CreatedApplicantsForJobs.resources
 C:\Users\Kate\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.CreatedApplicantsForJobs.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.addedidincomment.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.deadlinedeletedfromJob.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjob.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjobApplications.resources

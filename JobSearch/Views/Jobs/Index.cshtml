@@ -18,6 +18,7 @@
 
 
 
+<br />
 <p>
     @{
         int id = 0;
@@ -46,6 +47,9 @@
             @Html.DisplayNameFor(model => model.Position)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Company)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FullPart)
         </th>
         <th>
@@ -55,8 +59,9 @@
             @Html.DisplayNameFor(model => model.Qualifications)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Deadline)
+            @Html.DisplayNameFor(model => model.Salary)
         </th>
+        <th>
         <th></th>
     </tr>
 
@@ -70,6 +75,9 @@
                 @Html.DisplayFor(modelItem => item.Position)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.FullPart)
             </td>
             <td>
@@ -79,7 +87,7 @@
                 @Html.DisplayFor(modelItem => item.Qualifications)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Deadline)
+                @Html.DisplayFor(modelItem => item.Salary)
             </td>
             <td>
                 @{

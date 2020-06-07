@@ -167,13 +167,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicantsForJobsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\JobControllers\PortfoliosController.cs" />
     <Compile Include="Controllers\JobControllers\ProfilesController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,8 +199,23 @@
     <Compile Include="Migrations\202006071042188_Created ApplicantsForJobs.Designer.cs">
       <DependentUpon>202006071042188_Created ApplicantsForJobs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006071711120_added id in comment.cs" />
+    <Compile Include="Migrations\202006071711120_added id in comment.Designer.cs">
+      <DependentUpon>202006071711120_added id in comment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006071749435_deadline deleted from Job.cs" />
+    <Compile Include="Migrations\202006071749435_deadline deleted from Job.Designer.cs">
+      <DependentUpon>202006071749435_deadline deleted from Job.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006071800493_added company and salary in job.cs" />
+    <Compile Include="Migrations\202006071800493_added company and salary in job.Designer.cs">
+      <DependentUpon>202006071800493_added company and salary in job.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006071809303_added company and salary in jobApplications.cs" />
+    <Compile Include="Migrations\202006071809303_added company and salary in jobApplications.Designer.cs">
+      <DependentUpon>202006071809303_added company and salary in jobApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobModels\ApplicantsForJob.cs" />
     <Compile Include="Models\JobModels\AppliesFor.cs" />
@@ -212,7 +225,6 @@
     <Compile Include="Models\JobModels\JobApplications.cs" />
     <Compile Include="Models\JobModels\Portfolio.cs" />
     <Compile Include="Models\JobModels\Profile.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -250,24 +262,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Profiles\Create.cshtml" />
@@ -283,7 +277,6 @@
     <Content Include="Views\Portfolios\Index.cshtml" />
     <Content Include="Views\Jobs\Create.cshtml" />
     <Content Include="Views\Jobs\Delete.cshtml" />
-    <Content Include="Views\Jobs\Edit.cshtml" />
     <Content Include="Views\Jobs\Index.cshtml" />
     <Content Include="Views\Jobs\Details.cshtml" />
     <Content Include="Views\Comments\Create.cshtml" />
@@ -331,6 +324,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006071042188_Created ApplicantsForJobs.resx">
       <DependentUpon>202006071042188_Created ApplicantsForJobs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071711120_added id in comment.resx">
+      <DependentUpon>202006071711120_added id in comment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071749435_deadline deleted from Job.resx">
+      <DependentUpon>202006071749435_deadline deleted from Job.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071800493_added company and salary in job.resx">
+      <DependentUpon>202006071800493_added company and salary in job.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006071809303_added company and salary in jobApplications.resx">
+      <DependentUpon>202006071809303_added company and salary in jobApplications.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,6 +7,7 @@ namespace JobSearch.Models.JobModels
 {
     public class Comment
     {
+        public int Id { get; set; }
         public int JobId { get; set; }
         public int Profileid { get; set; }
 
