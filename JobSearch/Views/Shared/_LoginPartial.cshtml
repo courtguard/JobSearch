@@ -5,10 +5,11 @@
     if (reqCookies != null)
     {
         User_name = reqCookies["UserName"].ToString();
-        <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Loged in as: " + User_name, "Index", "Portfolios", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
-            <li>@Html.ActionLink("Log Out", "LogOff", "Profiles", routeValues: null, htmlAttributes: new { id = "logofflink" })</li>
-        </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Welcome " + User_name, "Index", "Portfolios", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+        <li>@Html.ActionLink("My Portfolio ", "Index", "Portfolios", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+        <li>@Html.ActionLink("Log Out", "LogOff", "Profiles", routeValues: null, htmlAttributes: new { id = "logofflink" })</li>
+    </ul>
     }
     else
     {

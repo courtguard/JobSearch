@@ -4,7 +4,24 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<style type="text/css">
+    .pos{
+        color:#404040;
+        font-style:italic;
+    }
+    dt {
+        color: #3366DD;
+        font-size: 20px;
+    }
+    dd{
+        font-size:20px;
+        font-style:italic;
+    }
+</style>
+
+<h2>Details for the Job</h2>
+<h4 class="pos">Position: @Html.DisplayFor(model => model.Position)</h4>
+
 @{
     int id = 0;
     int role = 0;
@@ -16,17 +33,9 @@
     }
 }
 <div>
-    <h4>JobApplications</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Position)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Position)
-        </dd>
-
+        
         <dt>
             @Html.DisplayNameFor(model => model.FullPart)
         </dt>

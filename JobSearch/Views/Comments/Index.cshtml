@@ -3,35 +3,26 @@
 @{
     ViewBag.Title = "Index";
 }
+<style type="text/css">
+    h4 {
+        color: #0000EE;
+        font-weight: bold;
+    }
+    h5{
+        font-style:italic;
+    }
+</style>
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Profile.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comment)
-        </th>
-        <th></th>
-    </tr>
+<h2>Comments</h2>
+<hr />
+    
 
-@foreach (var item in Model) {
-    <tr>
-
-        <td>
-            @Html.DisplayFor(modelItem => item.Profile.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comment)
-        </td>
-        <td>
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    <h4>Comment by @Html.DisplayFor(modelItem => item.Profile.Username):</h4>
+    <h5>@Html.DisplayFor(modelItem => item.comment)</h5>
+        
 }
-
-</table>
+<hr />
+@Html.ActionLink("Add new comment", "Create", null, new { @class = "btn btn-primary" })
