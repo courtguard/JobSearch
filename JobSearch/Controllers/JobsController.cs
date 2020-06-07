@@ -136,6 +136,22 @@ namespace JobSearch.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Job job = db.Jobs.Find(id);
+            List<Comment> comments = db.Comments.ToList();
+            foreach (Comment comment in comments)
+            {
+                if (comment.JobId == id)
+                {
+                    db.Comments.Remove(comment);
+                }
+            }
+            List<AppliesFor> applies = db.AppliesFors.ToList();
+            foreach (AppliesFor a in applies)
+            {
+                if (a.JobId == id)
+                {
+                    db.AppliesFors.Remove(a);
+                }
+            }
             db.Jobs.Remove(job);
             db.SaveChanges();
             return RedirectToAction("Index");

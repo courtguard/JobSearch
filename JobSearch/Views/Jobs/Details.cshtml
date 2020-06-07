@@ -5,17 +5,26 @@
 }
 
 <style type="text/css">
-    .pos{
-        color:#404040;
-        font-style:italic;
+    .pos {
+        color: #3366DD;
+        font-style: italic;
+        font-weight: bold;
     }
+
     dt {
         color: #3366DD;
         font-size: 20px;
+        margin: 5px;
     }
-    dd{
-        font-size:20px;
-        font-style:italic;
+
+    dd {
+        font-size: 20px;
+        font-style: italic;
+        margin: 5px;
+    }
+
+    .celo {
+        padding-left:220px;
     }
 </style>
 
@@ -32,8 +41,10 @@
         role = Convert.ToInt32(reqCookies["Role"].ToString());
     }
 }
-<div>
-    <hr />
+
+
+<hr />
+<div class="celo">
     <dl class="dl-horizontal">
 
         <dt>
@@ -84,19 +95,19 @@
         {
             if (Model.Applications.Contains(id))
             {
-                <p style="font-size:20px;color:forestgreen">You have applied for this job</p>
-            }
-            else
-            {
-                @Html.ActionLink("Apply", "Apply", new { id = Model.JobId }, new { @class = "btn btn-primary" });
-                <br />
-            }
+            <p style="font-size:20px;color:forestgreen">You have applied for this job</p>
         }
         else
         {
-            @Html.ActionLink("View Applicants", "Index", "ApplicantsForJobs")
+            @Html.ActionLink("Apply", "Apply", new { id = Model.JobId }, new { @class = "btn btn-primary" });
             <br />
         }
-        @Html.ActionLink("View Comments", "Index", "Comments")
     }
-</p>
+    else
+    {
+        @Html.ActionLink("View Applicants", "Index", "ApplicantsForJobs")
+        <br />
+    }
+    @Html.ActionLink("View Comments", "Index", "Comments")
+    }
+    </p>

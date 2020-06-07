@@ -14,15 +14,23 @@
 </style>
 
 
-<h2>Comments</h2>
+<h2 style="color:#606060;">Comments</h2>
 <hr />
     
+@{ int k = 0;} 
 
 @foreach (var item in Model)
 {
+    k = item.JobId;
+    System.Diagnostics.Debug.WriteLine(k.ToString());
     <h4>Comment by @Html.DisplayFor(modelItem => item.Profile.Username):</h4>
     <h5>@Html.DisplayFor(modelItem => item.comment)</h5>
         
 }
 <hr />
+
 @Html.ActionLink("Add new comment", "Create", null, new { @class = "btn btn-primary" })
+<hr />
+<div>
+    @Html.ActionLink("Back", "Details","Jobs",new {id=k },null)
+</div>

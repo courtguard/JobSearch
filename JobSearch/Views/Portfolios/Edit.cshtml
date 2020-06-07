@@ -32,7 +32,7 @@
 
 </style>
 
-<h2>Edit</h2>
+<h2 style="color: #3366DD;">Edit portfolio</h2>
 
 
 @using (Html.BeginForm())
@@ -40,11 +40,9 @@
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Portfolio</h4>
     <hr />
     <div class="sl">
         <img align="right" style="display:block;" src="https://cdn2.iconfinder.com/data/icons/business-dual-color-glyph-set-4/128/JOB_DESCRIPTION-512.png" />
-
     </div>
 
     
@@ -90,8 +88,8 @@
                     @Html.EditorFor(model => model.PreviousProjects, new { htmlAttributes = new { @class = " lab form-control" } })
                     @Html.ValidationMessageFor(model => model.PreviousProjects, "", new { @class = "text-danger" })
                 </div>
-
             </div>
+
             <div class="savee">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

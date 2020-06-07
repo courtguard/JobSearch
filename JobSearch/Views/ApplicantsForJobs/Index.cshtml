@@ -4,12 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 style="color:#3366DD">Applicants</h2>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.eAddress)
+            Email
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -53,7 +53,7 @@
             @Html.DisplayFor(modelItem => item.Education)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CV)
+            <a href="@Html.DisplayFor(modelItem => item.CV)">@Html.DisplayFor(modelItem => item.Name)'s CV</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Experience)
@@ -63,5 +63,4 @@
         </td>
     </tr>
 }
-
 </table>
