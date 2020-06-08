@@ -19,9 +19,11 @@ namespace JobSearch.Models.JobModels
         public string CV { get; set; }
         public int Experience { get; set; }
         public string PreviousProjects { get; set; }
+        public string Approved { get; set; }
+        public int ProfileId { get; set; }
 
         public ApplicantsForJob() { }
-        public ApplicantsForJob(int j,string e,string n,string s,string l,string ed,string c,int ex,string p)
+        public ApplicantsForJob(int j,string e,string n,string s,string l,string ed,string c,int ex,string p,string a,int i)
         {
             JobId =j;
             eAddress = e;
@@ -32,6 +34,8 @@ namespace JobSearch.Models.JobModels
             CV = c;
             Experience = ex;
             PreviousProjects = p;
+            Approved = a;
+            ProfileId = i;
         }
     }
 }

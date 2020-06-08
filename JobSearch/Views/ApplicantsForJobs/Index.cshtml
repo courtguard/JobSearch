@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Index";
 }
+<style type="text/css">
+    td,th{
+        text-align:center;
+    }
+</style>
 
 <h2 style="color:#3366DD">Applicants</h2>
 
@@ -31,6 +36,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PreviousProjects)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approved)
         </th>
         <th></th>
     </tr>
@@ -61,6 +69,22 @@
         <td>
             @Html.DisplayFor(modelItem => item.PreviousProjects)
         </td>
+            @{ 
+                if (item.Approved == "Approved") { 
+                    <td> Approved</td>
+                }
+                else if(item.Approved == "Denied")
+                {
+                    <td> Denied </td>
+                }
+                else
+                {
+                    <td>
+                    @Html.ActionLink("Approve","Approve",new { id=item.ProfileId},new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Deny","Deny",new { id=item.ProfileId },new { @class = "btn btn-primary" })
+                    </td>
+                }
+            }
     </tr>
 }
 </table>

@@ -215,6 +215,14 @@
     <Compile Include="Migrations\202006071809303_added company and salary in jobApplications.Designer.cs">
       <DependentUpon>202006071809303_added company and salary in jobApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006081403068_Added approved to 3 tables.cs" />
+    <Compile Include="Migrations\202006081403068_Added approved to 3 tables.Designer.cs">
+      <DependentUpon>202006081403068_Added approved to 3 tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006081426218_removed Role and added ProfileId in ApplicantsForJob.cs" />
+    <Compile Include="Migrations\202006081426218_removed Role and added ProfileId in ApplicantsForJob.Designer.cs">
+      <DependentUpon>202006081426218_removed Role and added ProfileId in ApplicantsForJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobModels\ApplicantsForJob.cs" />
@@ -336,6 +344,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006071809303_added company and salary in jobApplications.resx">
       <DependentUpon>202006071809303_added company and salary in jobApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006081403068_Added approved to 3 tables.resx">
+      <DependentUpon>202006081403068_Added approved to 3 tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006081426218_removed Role and added ProfileId in ApplicantsForJob.resx">
+      <DependentUpon>202006081426218_removed Role and added ProfileId in ApplicantsForJob.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

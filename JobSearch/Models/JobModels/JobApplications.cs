@@ -16,6 +16,7 @@ namespace JobSearch.Models.JobModels
         public string FullPart { get; set; }
         public string Description { get; set; }
         public string Qualifications { get; set; }
+        public string Location { get; set; }
         public int Salary { get; set; }
 
         public List<int> Applications { get; set; }

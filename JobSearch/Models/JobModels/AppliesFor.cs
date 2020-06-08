@@ -10,6 +10,7 @@ namespace JobSearch.Models.JobModels
         private int? id;
         public int JobId { get; set; }
         public int Profileid { get; set; }
+        public string Approved { get; set; }
 
         public virtual Profile Profile { get; set; }
         public virtual Job Job { get; set; }
@@ -19,6 +20,7 @@ namespace JobSearch.Models.JobModels
         {
             Profileid = profileId;
             JobId = id;
+            Approved = "Pending";
         }
     }
 }

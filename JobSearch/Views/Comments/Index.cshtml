@@ -22,7 +22,7 @@
 @foreach (var item in Model)
 {
     k = item.JobId;
-    System.Diagnostics.Debug.WriteLine(k.ToString());
+    //System.Diagnostics.Debug.WriteLine(k.ToString());
     <h4>Comment by @Html.DisplayFor(modelItem => item.Profile.Username):</h4>
     <h5>@Html.DisplayFor(modelItem => item.comment)</h5>
         

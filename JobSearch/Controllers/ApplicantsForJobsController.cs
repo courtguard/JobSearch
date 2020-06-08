@@ -17,7 +17,6 @@ namespace JobSearch.Controllers
         // GET: ApplicantsForJobs
         public ActionResult Index()
         {
-            int jobId = 0;
             HttpCookie reqJobId = Request.Cookies["JobId"];
             int JobId=Convert.ToInt32(reqJobId["JobId"].ToString());
             List < ApplicantsForJob >model= new List<ApplicantsForJob>();
@@ -28,8 +27,9 @@ namespace JobSearch.Controllers
                 {
                     var profile = db.Profiles.Where(x => x.Id == a.Profileid).FirstOrDefault();
                     var portfolio = db.Portfolios.Where(x => x.ProfilId == a.Profileid).FirstOrDefault();
+                    var apply = db.AppliesFors.Where(x => x.Profileid == a.Profileid && x.JobId == JobId).FirstOrDefault();
                     if(profile!=null && portfolio!=null)
-                        model.Add(new ApplicantsForJob(JobId, profile.eAddress, profile.Name, profile.Surname, portfolio.Location, portfolio.Education, portfolio.CV, portfolio.Experience, portfolio.PreviousProjects));
+                        model.Add(new ApplicantsForJob(JobId, profile.eAddress, profile.Name, profile.Surname, portfolio.Location, portfolio.Education, portfolio.CV, portfolio.Experience, portfolio.PreviousProjects,apply.Approved,profile.Id));
                 }
             }
             return View(model);
@@ -137,6 +137,24 @@ namespace JobSearch.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult Deny(int id)
+        {
+            HttpCookie reqJobId = Request.Cookies["JobId"];
+            int JobId = Convert.ToInt32(reqJobId["JobId"].ToString());
+            AppliesFor a= db.AppliesFors.Where(x => x.JobId == JobId && x.Profileid == id).FirstOrDefault();
+            a.Approved = "Denied";
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult Approve(int id)
+        {
+            HttpCookie reqJobId = Request.Cookies["JobId"];
+            int JobId = Convert.ToInt32(reqJobId["JobId"].ToString());
+            AppliesFor a = db.AppliesFors.Where(x => x.JobId == JobId && x.Profileid == id).FirstOrDefault();
+            a.Approved = "Approved";
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
