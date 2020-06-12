@@ -1,0 +1,71 @@
+﻿
+@model IEnumerable<JobSearch.Models.JobModels.MyJobs>
+
+@{
+    ViewBag.Title = "Index";
+}
+<html>
+<head>
+    <style type="text/css">
+
+        h2 {
+            color: #3366DD;
+            font-weight: bold;
+        }
+
+        img {
+            height: 20%;
+            width: 100%;
+            border-radius: 20px;
+        }
+    </style>
+    @{
+        int id = 0;
+        int role = 0;
+        HttpCookie reqCookies = Request.Cookies["userInfo"];
+        if (reqCookies != null)
+        {
+            id = Convert.ToInt32(reqCookies["Id"].ToString());
+            role = Convert.ToInt32(reqCookies["Role"].ToString());
+
+        }
+    }
+
+</head>
+<body>
+
+
+
+    @foreach (var item in Model)
+    {
+        <div style="border:2px solid gray;border-radius: 10px;margin:10px;padding:5px">
+            <div style="border-bottom: 1px solid gray;padding-left:40px;font-size:24px;font-weight:bold">
+                @Html.DisplayNameFor(model => model.Position)
+                @Html.DisplayFor(modelItem => item.Position)
+            </div>
+            <div style="padding-left:50px;font-size:18px;font-weight:bold">
+                <br />
+                <span style="color:dodgerblue">Company: </span>
+                @Html.DisplayFor(modelItem => item.Company)
+                <br />
+                <span style="color:dodgerblue">Fulltime/Part time: </span>
+                @Html.DisplayFor(modelItem => item.FullPart)
+                <br />
+                <span style="color:dodgerblue">Description: </span>
+                @Html.DisplayFor(modelItem => item.Description)
+                <br />
+                <span style="color:dodgerblue">Qualifications: </span>
+                @Html.DisplayFor(modelItem => item.Qualifications)
+                <br />
+                <span style="color:dodgerblue">Salary: </span>
+                @Html.DisplayFor(modelItem => item.Salary)
+                <br />
+                <br />
+                <span style="color:dodgerblue">Approved: </span>
+                @Html.DisplayFor(modelItem => item.Approved)
+                <br />
+            </div>
+        </div>
+    }
+</body>
+</html>

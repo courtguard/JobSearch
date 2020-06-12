@@ -920,3 +920,14 @@ C:\Users\Damjan\Desktop\JobSearch-master\JobSearch\obj\Debug\JobSearch.Migration
 C:\Users\Damjan\Desktop\JobSearch-master\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjobApplications.resources
 C:\Users\Damjan\Desktop\JobSearch-master\JobSearch\obj\Debug\JobSearch.Migrations.Addedapprovedto3tables.resources
 C:\Users\Damjan\Desktop\JobSearch-master\JobSearch\obj\Debug\JobSearch.Migrations.removedRoleandaddedProfileIdinApplicantsForJob.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.editedprofiles.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.CreatedJobApplications.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.AddedJobIdinJobApplication.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedcommentincomment.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.CreatedApplicantsForJobs.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedidincomment.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.deadlinedeletedfromJob.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjob.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjobApplications.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.Addedapprovedto3tables.resources
+C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.removedRoleandaddedProfileIdinApplicantsForJob.resources

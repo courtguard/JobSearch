@@ -67,7 +67,7 @@ namespace JobSearch.Controllers.JobControllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(/*[Bind(Include = "Profileid,JobId,comment")] Comment comment*/string txt)
+        public ActionResult Create(string txt)
         {
             Comment comments = new Comment();
             comments.comment = txt;

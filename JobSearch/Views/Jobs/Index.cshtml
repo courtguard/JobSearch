@@ -44,46 +44,60 @@
             }
         </label>
     </h2>
+    @using (Html.BeginForm("Search", "Jobs"))
+    {
 
-        @foreach (var item in Model)
-        {
-            <div style="border:2px solid gray;border-radius: 10px;margin:10px;padding:5px">
-                <div style="border-bottom: 1px solid gray;padding-left:40px;font-size:24px;font-weight:bold">
-                    @Html.DisplayNameFor(model => model.Position)
-                    @Html.DisplayFor(modelItem => item.Position)
-                </div>
-                <div style="padding-left:50px;font-size:18px;font-weight:bold">
-                    <br />
-                    <span style="color:dodgerblue">Company: </span>
-                    @Html.DisplayFor(modelItem => item.Company)
-                    <br />
-                    <span style="color:dodgerblue">Fulltime/Part time: </span>
-                    @Html.DisplayFor(modelItem => item.FullPart)
-                    <br />
-                    <span style="color:dodgerblue">Description: </span>
-                    @Html.DisplayFor(modelItem => item.Description)
-                    <br />
-                    <span style="color:dodgerblue">Qualifications: </span>
-                    @Html.DisplayFor(modelItem => item.Qualifications)
-                    <br />
-                    <span style="color:dodgerblue">Salary: </span>
-                    @Html.DisplayFor(modelItem => item.Salary)
-                    <br />
-                    <div style="text-align:right">
-                        @if (id == item.ProfileId)
-                        {
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "margin-right:10px" })
-
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary" })
-
-                        }
-                        @if (role == 1)
-                        {
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
-                        }
-                    </div>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.TextBox("txt")
+                    <input type="submit" id="btnEmpFormSubmit" value="Search" class="btn btn-primary" />
                 </div>
             </div>
-        }
+        </div>
+     }
+
+    @foreach (var item in Model)
+    {
+        <div style="border:2px solid gray;border-radius: 10px;margin:10px;padding:5px">
+            <div style="border-bottom: 1px solid gray;padding-left:40px;font-size:24px;font-weight:bold">
+                @Html.DisplayNameFor(model => model.Position)
+                @Html.DisplayFor(modelItem => item.Position)
+            </div>
+            <div style="padding-left:50px;font-size:18px;font-weight:bold">
+                <br />
+                <span style="color:dodgerblue">Company: </span>
+                @Html.DisplayFor(modelItem => item.Company)
+                <br />
+                <span style="color:dodgerblue">Fulltime/Part time: </span>
+                @Html.DisplayFor(modelItem => item.FullPart)
+                <br />
+                <span style="color:dodgerblue">Description: </span>
+                @Html.DisplayFor(modelItem => item.Description)
+                <br />
+                <span style="color:dodgerblue">Qualifications: </span>
+                @Html.DisplayFor(modelItem => item.Qualifications)
+                <br />
+                <span style="color:dodgerblue">Salary: </span>
+                @Html.DisplayFor(modelItem => item.Salary)
+                <br />
+                <div style="text-align:right">
+                    @if (id == item.ProfileId)
+                    {
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary", @style = "margin-right:10px" })
+
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+                    }
+                    @if (role == 1)
+                    {
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    }
+                </div>
+            </div>
+        </div>
+    }
 </body>
 </html>

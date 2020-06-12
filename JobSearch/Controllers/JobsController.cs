@@ -182,5 +182,29 @@ namespace JobSearch.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult Search(string txt)
+        {
+
+            System.Diagnostics.Debug.WriteLine("Text:"+txt);
+
+            List<Job> j = new List<Job>();
+            var jobs = db.Jobs.Where(x => x.Position.Contains(txt)).ToList();
+            foreach (var l in jobs)
+            {
+                System.Diagnostics.Debug.WriteLine("++++");
+                System.Diagnostics.Debug.WriteLine(l.Position);
+                    Job m = new Job();
+                    m.Company = l.Company;
+                    m.Position = l.Position;
+                    m.FullPart = l.FullPart;
+                    m.Description = l.Description;
+                    m.Qualifications = l.Qualifications;
+                    m.Location = l.Location;
+                    m.Salary = l.Salary;
+                    j.Add(m);
+
+            }
+            return View(j);
+        }
     }
 }

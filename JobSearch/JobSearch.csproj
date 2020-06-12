@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\ApplicantsForJobsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
+    <Compile Include="Controllers\JobControllers\MyJobsController.cs" />
     <Compile Include="Controllers\JobControllers\PortfoliosController.cs" />
     <Compile Include="Controllers\JobControllers\ProfilesController.cs" />
     <Compile Include="Controllers\JobsController.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="Models\JobModels\EmploymentContext.cs" />
     <Compile Include="Models\JobModels\Job.cs" />
     <Compile Include="Models\JobModels\JobApplications.cs" />
+    <Compile Include="Models\JobModels\MyJobs.cs" />
     <Compile Include="Models\JobModels\Portfolio.cs" />
     <Compile Include="Models\JobModels\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -299,6 +301,8 @@
     <Content Include="Views\ApplicantsForJobs\Details.cshtml" />
     <Content Include="Views\ApplicantsForJobs\Edit.cshtml" />
     <Content Include="Views\ApplicantsForJobs\Index.cshtml" />
+    <Content Include="Views\MyJobs\Index.cshtml" />
+    <Content Include="Views\Jobs\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
