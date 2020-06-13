@@ -17,10 +17,70 @@ namespace JobSearch.Controllers
         // GET: Jobs
         public ActionResult Index()
         {
-            var jobs = db.Jobs.Include(j => j.Profile);
-            return View(jobs.ToList());
+
+            List<Job> jobs = new List<Job>(); 
+            string search = string.Empty;
+            HttpCookie searchCookie = Request.Cookies["searchCookie"];
+            if (searchCookie != null)
+            {
+                search = searchCookie["Search"];
+                jobs = db.Jobs.Where(x => x.Position.Contains(search)).ToList();
+            }
+            else
+            {
+                jobs = db.Jobs.ToList();
+            }
+            string sort = string.Empty;
+            HttpCookie sortCookie = Request.Cookies["sortCookie"];
+            if (sortCookie != null)
+            {
+                sort = sortCookie["sort"];
+                if(sort=="Ascending")
+                    for (int i = 0; i < jobs.Count - 1; i++)
+                    {
+                        for (int j = i + 1; j < jobs.Count; j++)
+                        {
+                            if (jobs[i].Salary > jobs[j].Salary)
+                            {
+                                Job tmp = jobs[i];
+                                jobs[i] = jobs[j];
+                                jobs[j] = tmp;
+                            }
+                        }
+                    }
+                else if(sort=="Descending")
+                    for (int i = 0; i < jobs.Count - 1; i++)
+                    {
+                        for (int j = i + 1; j < jobs.Count; j++)
+                        {
+                            if (jobs[i].Salary < jobs[j].Salary)
+                            {
+                                Job tmp = jobs[i];
+                                jobs[i] = jobs[j];
+                                jobs[j] = tmp;
+                            }
+                        }
+                    }
+
+            }
+
+            return View(jobs);
         }
 
+        public ActionResult Ascending()
+        {
+            HttpCookie sortCookie = new HttpCookie("sortCookie");
+            sortCookie["sort"] = "Ascending";
+            Response.Cookies.Add(sortCookie);
+            return RedirectToAction("Index");
+        }
+        public ActionResult Descending()
+        {
+            HttpCookie sortCookie = new HttpCookie("sortCookie");
+            sortCookie["sort"] = "Descending";
+            Response.Cookies.Add(sortCookie);
+            return RedirectToAction("Index");
+        }
         // GET: Jobs/Details/5
         public ActionResult Details(int id)
         {
@@ -82,39 +142,6 @@ namespace JobSearch.Controllers
             return View(job);
         }
 
-        // GET: Jobs/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Job job = db.Jobs.Find(id);
-            if (job == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ProfileId = new SelectList(db.Profiles, "Id", "Username", job.ProfileId);
-            return View(job);
-        }
-
-        // POST: Jobs/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Position,FullPart,Description,Qualifications,Deadline")] Job job)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(job).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.ProfileId = new SelectList(db.Profiles, "Id", "Username", job.ProfileId);
-            return View(job);
-        }
-
         // GET: Jobs/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -171,7 +198,7 @@ namespace JobSearch.Controllers
                     db.SaveChanges();
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Details","Jobs", new { id = id });
         }
         protected override void Dispose(bool disposing)
         {
@@ -184,27 +211,11 @@ namespace JobSearch.Controllers
 
         public ActionResult Search(string txt)
         {
+            HttpCookie searchCookie = new HttpCookie("searchCookie");
+            searchCookie["Search"] = txt;
+            Response.Cookies.Add(searchCookie);
 
-            System.Diagnostics.Debug.WriteLine("Text:"+txt);
-
-            List<Job> j = new List<Job>();
-            var jobs = db.Jobs.Where(x => x.Position.Contains(txt)).ToList();
-            foreach (var l in jobs)
-            {
-                System.Diagnostics.Debug.WriteLine("++++");
-                System.Diagnostics.Debug.WriteLine(l.Position);
-                    Job m = new Job();
-                    m.Company = l.Company;
-                    m.Position = l.Position;
-                    m.FullPart = l.FullPart;
-                    m.Description = l.Description;
-                    m.Qualifications = l.Qualifications;
-                    m.Location = l.Location;
-                    m.Salary = l.Salary;
-                    j.Add(m);
-
-            }
-            return View(j);
+            return RedirectToAction("Index");
         }
     }
 }

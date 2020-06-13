@@ -47,41 +47,54 @@
     @using (Html.BeginForm("Search", "Jobs"))
     {
 
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <div class="col-md-10">
-                    @Html.TextBox("txt")
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    @{
+                        HttpCookie searchCookie = Request.Cookies["searchCookie"];
+                        if (searchCookie != null)
+                        {
+                            string search = searchCookie["Search"];
+                            @Html.TextBox("txt", search);
+                        }
+                        else
+                        {
+                            @Html.TextBox("txt");
+                        }
+                    }
                     <input type="submit" id="btnEmpFormSubmit" value="Search" class="btn btn-primary" />
+                </div>
+                <div class="col-lg-6" style="text-align:right;padding-right:50px">
+                    <span style="font-size:16px;font-weight:bold">Sort by salary:</span>
+                    @Html.ActionLink("Ascending", "Ascending", null, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Descending", "Descending", null, new { @class = "btn btn-primary" })
                 </div>
             </div>
         </div>
-     }
-
+    }
     @foreach (var item in Model)
     {
         <div style="border:2px solid gray;border-radius: 10px;margin:10px;padding:5px">
             <div style="border-bottom: 1px solid gray;padding-left:40px;font-size:24px;font-weight:bold">
-                @Html.DisplayNameFor(model => model.Position)
-                @Html.DisplayFor(modelItem => item.Position)
+                <span style="color: dodgerblue">@Html.DisplayNameFor(model => model.Position): </span>
+                <span style="font-style: italic">@Html.DisplayFor(modelItem => item.Position)</span>
             </div>
             <div style="padding-left:50px;font-size:18px;font-weight:bold">
                 <br />
                 <span style="color:dodgerblue">Company: </span>
-                @Html.DisplayFor(modelItem => item.Company)
+                <span style="font-style: italic">@Html.DisplayFor(modelItem => item.Company)</span>
                 <br />
                 <span style="color:dodgerblue">Fulltime/Part time: </span>
-                @Html.DisplayFor(modelItem => item.FullPart)
+                <span style="font-style: italic">@Html.DisplayFor(modelItem => item.FullPart)</span>
                 <br />
                 <span style="color:dodgerblue">Description: </span>
-                @Html.DisplayFor(modelItem => item.Description)
+                <span style="font-style: italic">@Html.DisplayFor(modelItem => item.Description)</span>
                 <br />
                 <span style="color:dodgerblue">Qualifications: </span>
-                @Html.DisplayFor(modelItem => item.Qualifications)
+                <span style="font-style: italic">@Html.DisplayFor(modelItem => item.Qualifications)</span>
                 <br />
                 <span style="color:dodgerblue">Salary: </span>
-                @Html.DisplayFor(modelItem => item.Salary)
+                <span style="font-style: italic">@Html.DisplayFor(modelItem => item.Salary)</span>
                 <br />
                 <div style="text-align:right">
                     @if (id == item.ProfileId)

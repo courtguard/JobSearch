@@ -23,9 +23,20 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Available Jobs", "Index", "Jobs")</li>
                 </ul>
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("My Applications", "Index", "MyJobs")</li>
-                </ul>
+                @{ 
+                    int role = 0;
+                    HttpCookie reqCookies = Request.Cookies["userInfo"];
+                    if (reqCookies != null)
+                    {
+                        role = Convert.ToInt32(reqCookies["Role"].ToString());
+                        if (role == 1) 
+                        { 
+                            <ul class="nav navbar-nav">
+                                <li>@Html.ActionLink("My Applications", "Index", "MyJobs")</li>
+                            </ul>
+                        }
+                    }
+                }
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

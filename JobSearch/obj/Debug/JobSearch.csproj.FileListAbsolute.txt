@@ -931,3 +931,5 @@ C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedc
 C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjobApplications.resources
 C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.Addedapprovedto3tables.resources
 C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.removedRoleandaddedProfileIdinApplicantsForJob.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.Addedapprovedto3tables.resources
+C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.removedRoleandaddedProfileIdinApplicantsForJob.resources

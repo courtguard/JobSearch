@@ -95,19 +95,17 @@
         {
             if (Model.Applications.Contains(id))
             {
-            <p style="font-size:20px;color:forestgreen">You have applied for this job</p>
+            <span style="font-size:20px;color:forestgreen">You have applied for this job</span>
         }
         else
         {
             @Html.ActionLink("Apply", "Apply", new { id = Model.JobId }, new { @class = "btn btn-primary" });
-            <br />
         }
     }
     else
     {
-        @Html.ActionLink("View Applicants", "Index", "ApplicantsForJobs")
-        <br />
+        @Html.ActionLink("View Applicants", "Index", "ApplicantsForJobs",null,new { @class = "btn btn-primary" })
     }
-    @Html.ActionLink("View Comments", "Index", "Comments")
+    @Html.ActionLink("View Comments", "Index", "Comments",null, new { @class = "btn btn-primary",style="margin-left:20px"})
     }
     </p>

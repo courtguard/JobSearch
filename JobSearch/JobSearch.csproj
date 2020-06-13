@@ -302,7 +302,6 @@
     <Content Include="Views\ApplicantsForJobs\Edit.cshtml" />
     <Content Include="Views\ApplicantsForJobs\Index.cshtml" />
     <Content Include="Views\MyJobs\Index.cshtml" />
-    <Content Include="Views\Jobs\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
