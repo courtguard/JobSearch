@@ -66,7 +66,7 @@ namespace JobSearch.Controllers.JobControllers
                     userInfo["eAddress"] = profile.eAddress;
                     userInfo.Expires.Add(new TimeSpan(0, 1, 0));
                     Response.Cookies.Add(userInfo);
-                    return RedirectToAction("Index","Jobs");
+                    return RedirectToAction("AllJobs","Jobs");
                 }
                 else
                 {
@@ -79,63 +79,6 @@ namespace JobSearch.Controllers.JobControllers
             }
 
             return View(profile);
-        }
-
-        // GET: Profiles/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
-            {
-                return HttpNotFound();
-            }
-            return View(profile);
-        }
-
-        // POST: Profiles/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Username,Password,eAddress,Name,Surname,Role")] Profile profile)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(profile).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(profile);
-        }
-
-        // GET: Profiles/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Profile profile = db.Profiles.Find(id);
-            if (profile == null)
-            {
-                return HttpNotFound();
-            }
-            return View(profile);
-        }
-
-        // POST: Profiles/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Profile profile = db.Profiles.Find(id);
-            db.Profiles.Remove(profile);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
@@ -173,7 +116,7 @@ namespace JobSearch.Controllers.JobControllers
             userInfo.Expires.Add(new TimeSpan(0, 1, 0));
             Response.Cookies.Add(userInfo);
 
-            return RedirectToAction("Index", "Jobs");
+            return RedirectToAction("AllJobs", "Jobs");
             
         }
         public ActionResult LogOff()
@@ -184,7 +127,7 @@ namespace JobSearch.Controllers.JobControllers
                 c.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(c);
             }
-            return RedirectToAction("Index", "Jobs");
+            return RedirectToAction("AllJobs", "Jobs");
         }
     }
 }

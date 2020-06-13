@@ -69,14 +69,17 @@ namespace JobSearch.Controllers
 
         public ActionResult AllJobs()
         {
-            if (Request.Cookies["userInfo"] != null)
+            if (Request.Cookies["sortCookie"] != null)
             {
                 var c1 = new HttpCookie("sortCookie");
-                var c2 = new HttpCookie("searchCookie");
                 c1.Expires = DateTime.Now.AddDays(-1);
-                c2.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(c1);
-                Response.Cookies.Add(c2);
+            }
+            if (Request.Cookies["searchCookie"] != null)
+            {
+                var c1 = new HttpCookie("searchCookie");
+                c1.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(c1);
             }
             return RedirectToAction("Index");
         }
