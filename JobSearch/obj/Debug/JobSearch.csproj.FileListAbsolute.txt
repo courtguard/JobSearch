@@ -933,3 +933,9 @@ C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.Addeda
 C:\Users\anaki\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.removedRoleandaddedProfileIdinApplicantsForJob.resources
 C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.Addedapprovedto3tables.resources
 C:\Users\Damjan\Desktop\New folder\JobSearch\obj\Debug\JobSearch.Migrations.removedRoleandaddedProfileIdinApplicantsForJob.resources
+C:\Users\Kate\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedidincomment.resources
+C:\Users\Kate\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.deadlinedeletedfromJob.resources
+C:\Users\Kate\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjob.resources
+C:\Users\Kate\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.addedcompanyandsalaryinjobApplications.resources
+C:\Users\Kate\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.Addedapprovedto3tables.resources
+C:\Users\Kate\Desktop\JobSearch\JobSearch\obj\Debug\JobSearch.Migrations.removedRoleandaddedProfileIdinApplicantsForJob.resources

@@ -33,7 +33,6 @@
 </head>
 <body>
 
-
     <img src="https://www.gigroup.com/pics/gigroup-ibm-banner.jpg" />
     <h2 style="padding-left:20px">
         Available jobs
@@ -55,13 +54,13 @@
                         if (searchCookie != null)
                         {
                             string search = searchCookie["Search"];
-                            @Html.TextBox("txt", search);
+                            @Html.TextBox("txt", search, new { style = "width:350px; height:35px; border-radius:15px;" });
                         }
-                        else
-                        {
-                            @Html.TextBox("txt");
-                        }
-                    }
+                                else
+                                {
+                                    @Html.TextBox("txt","", new { style = "width:350px; height:35px; border-radius:15px;" });
+                                }
+                            }
                     <input type="submit" id="btnEmpFormSubmit" value="Search" class="btn btn-primary" />
                 </div>
                 <div class="col-lg-6" style="text-align:right;padding-right:50px">

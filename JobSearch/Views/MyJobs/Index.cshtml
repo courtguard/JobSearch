@@ -61,8 +61,20 @@
                 @Html.DisplayFor(modelItem => item.Salary)
                 <br />
                 <br />
-                <span style="color:dodgerblue">Approved: </span>
-                @Html.DisplayFor(modelItem => item.Approved)
+                <span style="color:black">Approved: </span>
+
+                @if (item.Approved == "Approved")
+                {
+                    <label style="color:green;">@Html.DisplayFor(modelItem => item.Approved)</label>
+                }
+                else if (item.Approved == "Denied")
+                {
+                     <label style="color:red;">@Html.DisplayFor(modelItem => item.Approved)</label>
+                }
+                else
+                {
+                     <label style="color:yellow;">@Html.DisplayFor(modelItem => item.Approved)</label>
+                }
                 <br />
             </div>
         </div>

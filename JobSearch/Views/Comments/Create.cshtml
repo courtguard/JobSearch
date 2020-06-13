@@ -17,7 +17,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.comment, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBox("txt")
+                @Html.TextBox("txt", "", new { style = "width:1350px; height:65px; border-radius:15px;"})
                 @Html.ValidationMessageFor(model => model.comment, "", new { @class = "text-danger" })
             </div>
         </div>
